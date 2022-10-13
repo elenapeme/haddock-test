@@ -1,5 +1,5 @@
 import { Product } from './../models/Product'
-import { readJSON, writeJSON } from './../utils/utils'
+import { readJSON, writeJSON, hasRequiredParameters } from './../utils/utils'
 
 
 export const getProductsService = async () => {
@@ -10,10 +10,6 @@ export const getProductsService = async () => {
 
 export const createProductsService = async (products: Product[]) => {
     const productsData = readJSON()
-
-    const hasRequiredParameters = (product: Product) => {
-        return product.name && product.number && product.price
-    }
 
     products.map(e => {
         if (hasRequiredParameters(e)) {
@@ -29,6 +25,22 @@ export const createProductsService = async (products: Product[]) => {
     return productsData.products
 }
 
-export const deleteProductService = async () => {
-    
+export const deleteProductsService = async (products: Product[]) => {
+    const productsData = readJSON()
+
+    const productsNotDeleted: Product[] = products.map(e => {
+        if (hasRequiredParameters(e)) {
+            return productsData.products.filter((j: Product) => j.number !== e.number)
+        } else {
+            console.log("You must add all the required parameters")
+        }
+        
+    })
+
+    // We need to flat the array in order to add it to the original version
+    productsData.products = productsNotDeleted.flat(1)
+
+    writeJSON(productsData)
+
+    return productsNotDeleted
 }

@@ -20,13 +20,13 @@ exports.router.post("/order-products", OrdersController_1.orderProducts);
 // create new product
 exports.router.post("/create-new-products", ProductsController_1.createProducts);
 // create new promotion
-exports.router.post("/add-promotion");
+exports.router.post("/add-promotions", PromotionsController_1.addPromotions);
 // PUT
 // modify a promotion
-exports.router.put("/modify-promotion");
+exports.router.put("/modify-promotions", PromotionsController_1.modifyPromotions);
 // DELETE
 // delete a product
-exports.router.delete("/delete-product");
+exports.router.delete("/delete-products", ProductsController_1.deleteProducts);
 // delete a promotion
-exports.router.delete("/delete-promotion");
+exports.router.delete("/delete-promotions", PromotionsController_1.deletePromotions);
 //# sourceMappingURL=routes.js.map

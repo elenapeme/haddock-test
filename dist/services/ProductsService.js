@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteProductService = exports.createProductsService = exports.getProductsService = void 0;
+exports.deleteProductsService = exports.createProductsService = exports.getProductsService = void 0;
 const utils_1 = require("./../utils/utils");
 const getProductsService = () => __awaiter(void 0, void 0, void 0, function* () {
     const productsData = (0, utils_1.readJSON)();
@@ -18,11 +18,8 @@ const getProductsService = () => __awaiter(void 0, void 0, void 0, function* () 
 exports.getProductsService = getProductsService;
 const createProductsService = (products) => __awaiter(void 0, void 0, void 0, function* () {
     const productsData = (0, utils_1.readJSON)();
-    const hasRequiredParameters = (product) => {
-        return product.name && product.number && product.price;
-    };
     products.map(e => {
-        if (hasRequiredParameters(e)) {
+        if ((0, utils_1.hasRequiredParameters)(e)) {
             productsData.products.push(e);
         }
         else {
@@ -33,7 +30,20 @@ const createProductsService = (products) => __awaiter(void 0, void 0, void 0, fu
     return productsData.products;
 });
 exports.createProductsService = createProductsService;
-const deleteProductService = () => __awaiter(void 0, void 0, void 0, function* () {
+const deleteProductsService = (products) => __awaiter(void 0, void 0, void 0, function* () {
+    const productsData = (0, utils_1.readJSON)();
+    const productsNotDeleted = products.map(e => {
+        if ((0, utils_1.hasRequiredParameters)(e)) {
+            return productsData.products.filter((j) => j.number !== e.number);
+        }
+        else {
+            console.log("You must add all the required parameters");
+        }
+    });
+    // We need to flat the array in order to add it to the original version
+    productsData.products = productsNotDeleted.flat(1);
+    (0, utils_1.writeJSON)(productsData);
+    return productsNotDeleted;
 });
-exports.deleteProductService = deleteProductService;
+exports.deleteProductsService = deleteProductsService;
 //# sourceMappingURL=ProductsService.js.map

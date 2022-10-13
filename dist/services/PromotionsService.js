@@ -9,20 +9,47 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deletePromotionService = exports.modifyPromotionService = exports.addPromotionService = exports.getPromotionsService = void 0;
+exports.deletePromotionsService = exports.updatePromotionsService = exports.addPromotionsService = exports.getPromotionsService = void 0;
 const utils_1 = require("./../utils/utils");
 const getPromotionsService = () => __awaiter(void 0, void 0, void 0, function* () {
     const promotionsData = (0, utils_1.readJSON)();
     return promotionsData.promotions;
 });
 exports.getPromotionsService = getPromotionsService;
-const addPromotionService = () => __awaiter(void 0, void 0, void 0, function* () {
+const addPromotionsService = (promotions) => __awaiter(void 0, void 0, void 0, function* () {
+    const productsData = (0, utils_1.readJSON)();
+    promotions.map(e => {
+        return Object.assign(productsData.promotions, e);
+    });
+    (0, utils_1.writeJSON)(productsData);
+    return productsData.promotions;
 });
-exports.addPromotionService = addPromotionService;
-const modifyPromotionService = () => __awaiter(void 0, void 0, void 0, function* () {
+exports.addPromotionsService = addPromotionsService;
+const updatePromotionsService = (promotions) => __awaiter(void 0, void 0, void 0, function* () {
+    const productsData = (0, utils_1.readJSON)();
+    promotions.map(e => {
+        if (productsData.promotions)
+            return Object.assign(productsData.promotions, e);
+    });
+    const keys = Object.keys(promotions);
+    keys.forEach((key) => {
+        return productsData.promotions[key] = promotions[key];
+    });
+    (0, utils_1.writeJSON)(productsData);
+    return productsData.promotions;
 });
-exports.modifyPromotionService = modifyPromotionService;
-const deletePromotionService = () => __awaiter(void 0, void 0, void 0, function* () {
+exports.updatePromotionsService = updatePromotionsService;
+const deletePromotionsService = (promotions) => __awaiter(void 0, void 0, void 0, function* () {
+    const productsData = (0, utils_1.readJSON)();
+    promotions.map((e) => {
+        const keys = Object.keys(e);
+        keys.forEach((key) => {
+            return delete productsData.promotions[key];
+        });
+        console.log(productsData.promotions);
+    });
+    (0, utils_1.writeJSON)(productsData);
+    return productsData;
 });
-exports.deletePromotionService = deletePromotionService;
+exports.deletePromotionsService = deletePromotionsService;
 //# sourceMappingURL=PromotionsService.js.map

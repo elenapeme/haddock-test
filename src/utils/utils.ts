@@ -12,3 +12,7 @@ export const writeJSON = (data: Product | Promotions) => {
         if (err) console.log("Error writing file:", err);
     })
 }
+
+export const hasRequiredParameters = (product: Product) => {
+    return product.name && product.number && product.price
+}

@@ -14,6 +14,26 @@
             "number": "37",
             "name": "Chicken with almond sauce",
             "price": 6.5
+        },
+        {
+            "number": "2",
+            "name": "Chicken",
+            "price": 5.5
+        },
+        {
+            "number": "12",
+            "name": "Spring rolls",
+            "price": 4.5
+        },
+        {
+            "number": "21",
+            "name": "Fried rice with pork",
+            "price": 6
+        },
+        {
+            "number": "37",
+            "name": "Chicken with almond sauce",
+            "price": 6.5
         }
     ],
     "promotions": {

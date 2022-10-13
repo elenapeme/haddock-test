@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeJSON = exports.readJSON = void 0;
+exports.hasRequiredParameters = exports.writeJSON = exports.readJSON = void 0;
 const fs_1 = __importDefault(require("fs"));
 const readJSON = () => {
     const rawdata = fs_1.default.readFileSync('./src/assets/Products.json');
@@ -17,4 +17,8 @@ const writeJSON = (data) => {
     });
 };
 exports.writeJSON = writeJSON;
+const hasRequiredParameters = (product) => {
+    return product.name && product.number && product.price;
+};
+exports.hasRequiredParameters = hasRequiredParameters;
 //# sourceMappingURL=utils.js.map
