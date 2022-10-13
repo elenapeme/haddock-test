@@ -9,11 +9,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPromotions = exports.getProducts = void 0;
+exports.createProducts = exports.getProducts = void 0;
 const ProductsService_1 = require("./../services/ProductsService");
 const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const products = yield (0, ProductsService_1.getAllProducts)();
+        const products = yield (0, ProductsService_1.getProductsService)();
         res.status(200).send(products);
     }
     catch (e) {
@@ -21,14 +21,14 @@ const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.getProducts = getProducts;
-const getPromotions = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const createProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const promotions = yield (0, ProductsService_1.getAllPromotions)();
-        res.status(200).send(promotions);
+        const products = yield (0, ProductsService_1.createProductsService)(req.body);
+        res.status(200).send(products);
     }
     catch (e) {
         res.status(500).send(e.message);
     }
 });
-exports.getPromotions = getPromotions;
+exports.createProducts = createProducts;
 //# sourceMappingURL=ProductsController.js.map

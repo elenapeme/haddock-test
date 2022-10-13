@@ -9,17 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.orderProducts = void 0;
-const OrderService_1 = require("./../services/OrderService");
-const orderProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getPromotions = void 0;
+const PromotionsService_1 = require("./../services/PromotionsService");
+const getPromotions = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const productsOrdered = req.body;
-        const orderTotal = yield (0, OrderService_1.serviceOrderTotal)(productsOrdered);
-        res.status(200).send(orderTotal);
+        const promotions = yield (0, PromotionsService_1.getPromotionsService)();
+        res.status(200).send(promotions);
     }
     catch (e) {
         res.status(500).send(e.message);
     }
 });
-exports.orderProducts = orderProducts;
-//# sourceMappingURL=OrdersController.js.map
+exports.getPromotions = getPromotions;
+//# sourceMappingURL=PromotionsController.js.map

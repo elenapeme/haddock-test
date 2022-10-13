@@ -1,6 +1,7 @@
 import express from 'express'
-import { getProducts, getPromotions } from './../controllers/ProductsController'
+import { getProducts, createProducts } from './../controllers/ProductsController'
 import { orderProducts } from './../controllers/OrdersController'
+import { getPromotions } from './../controllers/PromotionsController'
 
 
 export const router = express.Router()
@@ -15,22 +16,22 @@ router.get("/get-promotions", getPromotions)
 
 // POST
 // send the items ordered and then receive the total price
-router.post("post-order", orderProducts)
+router.post("/order-products", orderProducts)
 
 // create new product
-router.post("post-new-product")
+router.post("/create-new-products", createProducts)
 
 // create new promotion
-router.post("add-promotion")
+router.post("/add-promotion")
 
 
 // PUT
 // modify a promotion
-router.put("modify-promotion")
+router.put("/modify-promotion")
 
 // DELETE
 // delete a product
-router.delete("delete-product")
+router.delete("/delete-product")
 
 // delete a promotion
-router.delete("delete-promotion")
+router.delete("/delete-promotion")

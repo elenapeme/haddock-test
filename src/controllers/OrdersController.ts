@@ -1,10 +1,13 @@
 import { Request, Response } from "express"
-import { calculateOrderTotal } from './../services/OrderService'
+import { serviceOrderTotal } from './../services/OrderService'
 
-export const orderProducts = async(req: Request, res: Response) => {
-    const productsOrdered = req.body.products
+export const orderProducts = async (req: Request, res: Response) => {
+    try {
+        const productsOrdered = req.body
+        const orderTotal = await serviceOrderTotal(productsOrdered)
 
-    const orderTotal = await calculateOrderTotal(productsOrdered)
-
-
+        res.status(200).send(orderTotal)
+    } catch (e: any) {
+        res.status(500).send(e.message);
+    }
 }

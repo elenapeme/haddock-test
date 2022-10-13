@@ -9,16 +9,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllPromotions = exports.getAllProducts = void 0;
+exports.deleteProductService = exports.createProductsService = exports.getProductsService = void 0;
 const utils_1 = require("./../utils/utils");
-const getAllProducts = () => __awaiter(void 0, void 0, void 0, function* () {
+const getProductsService = () => __awaiter(void 0, void 0, void 0, function* () {
     const productsData = (0, utils_1.readJSON)();
     return productsData.products;
 });
-exports.getAllProducts = getAllProducts;
-const getAllPromotions = () => __awaiter(void 0, void 0, void 0, function* () {
-    const promotionsData = (0, utils_1.readJSON)();
-    return promotionsData.promotions;
+exports.getProductsService = getProductsService;
+const createProductsService = (products) => __awaiter(void 0, void 0, void 0, function* () {
+    const productsData = (0, utils_1.readJSON)();
+    const hasRequiredParameters = (product) => {
+        return product.name && product.number && product.price;
+    };
+    products.map(e => {
+        if (hasRequiredParameters(e)) {
+            productsData.products.push(e);
+        }
+        else {
+            console.log("You must add all the required parameters");
+        }
+    });
+    (0, utils_1.writeJSON)(productsData);
+    return productsData.products;
 });
-exports.getAllPromotions = getAllPromotions;
+exports.createProductsService = createProductsService;
+const deleteProductService = () => __awaiter(void 0, void 0, void 0, function* () {
+});
+exports.deleteProductService = deleteProductService;
 //# sourceMappingURL=ProductsService.js.map
