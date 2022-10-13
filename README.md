@@ -37,3 +37,4 @@ Due to the limited time I had I had to prioritize which elements should be quick
 - Improve error handling - give more information when there is an error
 - Add more unit testing
 - Improve control of the body requests (control which parameters are not allowed and send that info to the response)
+- Refactor code - snippets that can be reusable and rething concept of entity "promotions"
