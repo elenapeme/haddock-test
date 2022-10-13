@@ -35,4 +35,5 @@ If you want to use the postman collection you just need to take that json with t
 ## Notes & features that need to be done in the future
 Due to the limited time I had I had to prioritize which elements should be quick wins to have it in the API. However, there are several things I have recorded to improve it in the future.
 - Improve error handling - give more information when there is an error
+- Add more unit testing
 - Improve control of the body requests (control which parameters are not allowed and send that info to the response)
