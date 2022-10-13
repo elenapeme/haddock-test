@@ -19,7 +19,7 @@ exports.router.get("/get-promotions", PromotionsController_1.getPromotions);
 exports.router.post("/order-products", OrdersController_1.orderProducts);
 // create new product
 exports.router.post("/create-new-products", ProductsController_1.createProducts);
-// create new promotion
+// create new promotions
 exports.router.post("/add-promotions", PromotionsController_1.addPromotions);
 // PUT
 // modify a promotion

@@ -21,7 +21,7 @@ router.post("/order-products", orderProducts)
 // create new product
 router.post("/create-new-products", createProducts)
 
-// create new promotion
+// create new promotions
 router.post("/add-promotions", addPromotions)
 
 
