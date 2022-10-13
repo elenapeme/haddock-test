@@ -10,11 +10,14 @@ The endpoints are the following:
 
 ### GET
 /get-products - to get all the products
+<br />
 /get-promotions - to get all the promotions
 
 ### POST
 /order-products - send the items ordered and then receive as a response the total price
+<br />
 /create-new-products - create new products (can be one or more)
+<br />
 /add-promotions - create new promotions (can be one or more)
 
 ### PUT
@@ -22,6 +25,7 @@ The endpoints are the following:
 
 ### DELETE
 /delete-products - deletes one or more products
+<br />
 /delete-promotions - deletes one or more promotions
 
 ## Installation
