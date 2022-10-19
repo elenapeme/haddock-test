@@ -5,6 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 const express_1 = __importDefault(require("express"));
+const validateMiddleware_1 = require("./../utils/validateMiddleware");
+const ProductSchema_1 = require("./../schemas/ProductSchema");
+const PromotionSchema_1 = require("./../schemas/PromotionSchema");
+const OrderSchema_1 = require("./../schemas/OrderSchema");
 const ProductsController_1 = require("./../controllers/ProductsController");
 const OrdersController_1 = require("./../controllers/OrdersController");
 const PromotionsController_1 = require("./../controllers/PromotionsController");
@@ -16,11 +20,11 @@ exports.router.get("/get-products", ProductsController_1.getProducts);
 exports.router.get("/get-promotions", PromotionsController_1.getPromotions);
 // POST
 // send the items ordered and then receive the total price
-exports.router.post("/order-products", OrdersController_1.orderProducts);
+exports.router.post("/order-products", (0, validateMiddleware_1.validate)(OrderSchema_1.OrderSchema), OrdersController_1.orderProducts);
 // create new product
-exports.router.post("/create-new-products", ProductsController_1.createProducts);
+exports.router.post("/create-new-products", (0, validateMiddleware_1.validate)(ProductSchema_1.ProductsArraySchema), ProductsController_1.createProducts);
 // create new promotions
-exports.router.post("/add-promotions", PromotionsController_1.addPromotions);
+exports.router.post("/add-promotions", (0, validateMiddleware_1.validate)(PromotionSchema_1.PromotionsArraySchema), PromotionsController_1.addPromotions);
 // PUT
 // modify a promotion
 exports.router.put("/modify-promotions", PromotionsController_1.modifyPromotions);

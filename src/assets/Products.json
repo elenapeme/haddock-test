@@ -63,6 +63,9 @@
         },
         "twoPerOneProducts": [
             "12"
+        ],
+        "discountedElements": [
+            "1"
         ]
     }
 }

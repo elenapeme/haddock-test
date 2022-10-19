@@ -1,0 +1,1 @@
+{"version":3,"file":"OrderSchema.js","sourceRoot":"","sources":["../../src/schemas/OrderSchema.ts"],"names":[],"mappings":";;;;;;AAAA,8CAAqB;AAER,QAAA,WAAW,GAAG,aAAG,CAAC,MAAM,CAAC;IAClC,SAAS,EAAE,aAAG,CAAC,MAAM,EAAE,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,QAAQ,EAAE;CAC5C,CAAC,CAAA"}

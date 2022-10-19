@@ -1,4 +1,8 @@
 import express from 'express'
+import { validate } from './../utils/validateMiddleware'
+import { ProductsArraySchema } from './../schemas/ProductSchema'
+import { PromotionsArraySchema } from './../schemas/PromotionSchema'
+import { OrderSchema } from './../schemas/OrderSchema'
 import { getProducts, createProducts, deleteProducts } from './../controllers/ProductsController'
 import { orderProducts } from './../controllers/OrdersController'
 import { getPromotions, addPromotions, modifyPromotions, deletePromotions } from './../controllers/PromotionsController'
@@ -16,22 +20,22 @@ router.get("/get-promotions", getPromotions)
 
 // POST
 // send the items ordered and then receive the total price
-router.post("/order-products", orderProducts)
+router.post("/order-products", validate(OrderSchema), orderProducts)
 
 // create new product
-router.post("/create-new-products", createProducts)
+router.post("/create-new-products", validate(ProductsArraySchema), createProducts)
 
 // create new promotions
-router.post("/add-promotions", addPromotions)
+router.post("/add-promotions", validate(PromotionsArraySchema), addPromotions)
 
 
 // PUT
 // modify a promotion
-router.put("/modify-promotions", modifyPromotions)
+router.put("/modify-promotions", validate(PromotionsArraySchema), modifyPromotions)
 
 // DELETE
 // delete a product
-router.delete("/delete-products", deleteProducts)
+router.delete("/delete-products", validate(PromotionsArraySchema), deleteProducts)
 
 // delete a promotion
-router.delete("/delete-promotions", deletePromotions)
+router.delete("/delete-promotions", validate(PromotionsArraySchema), deletePromotions)

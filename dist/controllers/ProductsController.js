@@ -22,13 +22,8 @@ const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.getProducts = getProducts;
 const createProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const products = yield (0, ProductsService_1.createProductsService)(req.body);
-        res.status(200).send(products);
-    }
-    catch (e) {
-        res.status(500).send(e.message);
-    }
+    const products = yield (0, ProductsService_1.createProductsService)(req.body);
+    res.status(200).send(products);
 });
 exports.createProducts = createProducts;
 const deleteProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

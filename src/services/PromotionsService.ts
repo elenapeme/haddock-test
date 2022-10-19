@@ -12,7 +12,7 @@ export const addPromotionsService = async (promotions: Promotions[]) => {
     const productsData = readJSON()
 
     promotions.map(e => {
-        return Object.assign(productsData.promotions, e) 
+        return Object.assign(productsData.promotions, e)
     })
 
     writeJSON(productsData)
@@ -20,20 +20,15 @@ export const addPromotionsService = async (promotions: Promotions[]) => {
     return productsData.promotions
 }
 
-export const updatePromotionsService = async (promotions: Promotions[]) => {
+export const updatePromotionsService = async (promotions: any[]) => {
     const productsData = readJSON()
 
     promotions.map(e => {
-        if(productsData.promotions)
-        return Object.assign(productsData.promotions, e) 
+        if (productsData.promotions)
+            return Object.assign(productsData.promotions, e)
     })
 
-    const keys = Object.keys(promotions)
-
-    keys.forEach((key: any) => {
-        return productsData.promotions[key] = promotions[key]
-    })
-
+    console.log(productsData.promotions)
 
     writeJSON(productsData)
 
@@ -45,13 +40,13 @@ export const deletePromotionsService = async (promotions: any) => {
 
     promotions.map((e: any) => {
         const keys = Object.keys(e)
-        
+
         keys.forEach((key) => {
             return delete productsData.promotions[key]
         })
 
         console.log(productsData.promotions)
-        
+
     })
 
     writeJSON(productsData)
