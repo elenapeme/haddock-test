@@ -80,11 +80,6 @@ describe("POST /order-products", () => {
         const response = await request(baseURL).post("/order-products").send(order)
         expect(response.statusCode).toBe(200)
     })
-
-    /*     it("should return the total of the products correctly", async () => {
-            const response = await request(baseURL).post("/order-products")
-            expect(response.body.totalCost).toBe(15)
-        }) */
 })
 
 
