@@ -31,15 +31,8 @@ const updatePromotionsService = (promotions) => __awaiter(void 0, void 0, void 0
         if (productsData.promotions)
             return Object.assign(productsData.promotions, e);
     });
-    /* const keys = Object.keys(promotions)
-
-    keys.forEach((key: any) => {
-        console.log(promotions[key])
-        productsData.promotions[key] = promotions[key]
-        console.log("productsData", productsData.promotions)
-    }) */
     console.log(productsData.promotions);
-    //writeJSON(productsData)
+    (0, utils_1.writeJSON)(productsData);
     return productsData.promotions;
 });
 exports.updatePromotionsService = updatePromotionsService;
@@ -50,7 +43,6 @@ const deletePromotionsService = (promotions) => __awaiter(void 0, void 0, void 0
         keys.forEach((key) => {
             return delete productsData.promotions[key];
         });
-        console.log(productsData.promotions);
     });
     (0, utils_1.writeJSON)(productsData);
     return productsData;

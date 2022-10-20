@@ -20,22 +20,22 @@ router.get("/get-promotions", getPromotions)
 
 // POST
 // send the items ordered and then receive the total price
-router.post("/order-products", validate(OrderSchema), orderProducts)
+router.post("/order-products", validate(ProductsArraySchema), orderProducts)
 
 // create new product
 router.post("/create-new-products", validate(ProductsArraySchema), createProducts)
 
 // create new promotions
-router.post("/add-promotions", validate(PromotionsArraySchema), addPromotions)
+router.post("/add-promotions", addPromotions)
 
 
 // PUT
 // modify a promotion
-router.put("/modify-promotions", validate(PromotionsArraySchema), modifyPromotions)
+router.put("/modify-promotions", modifyPromotions)
 
 // DELETE
 // delete a product
-router.delete("/delete-products", validate(PromotionsArraySchema), deleteProducts)
+router.delete("/delete-products", validate(ProductsArraySchema), deleteProducts)
 
 // delete a promotion
-router.delete("/delete-promotions", validate(PromotionsArraySchema), deletePromotions)
+router.delete("/delete-promotions", deletePromotions)

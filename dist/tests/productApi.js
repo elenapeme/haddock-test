@@ -1,4 +1,4 @@
-const request = require("supertest")
+/* const request = require("supertest")
 
 const baseURL = "http://localhost:5000/api"
 
@@ -81,10 +81,10 @@ describe("POST /order-products", () => {
         expect(response.statusCode).toBe(200)
     })
 
-    /*     it("should return the total of the products correctly", async () => {
-            const response = await request(baseURL).post("/order-products")
-            expect(response.body.totalCost).toBe(15)
-        }) */
+    it("should return the total of the products correctly", async () => {
+        const response = await request(baseURL).post("/order-products")
+        expect(response.body.totalCost).toBe(15)
+    })
 })
 
 
@@ -116,8 +116,6 @@ describe("POST /add-promotions", () => {
     })
 })
 
-
-//TODO - review why sometimes deletes all json
 describe("DELETE /delete-promotions", () => {
     const newPromotions = [{
         "discountedElements": ["1"]
@@ -128,7 +126,7 @@ describe("DELETE /delete-promotions", () => {
     })
 
     it("should add a product to the json", async () => {
-        const response = await request(baseURL).delete("/delete-promotions").send(newPromotions)
+        const response = await request(baseURL).post("/delete-promotions").send(newPromotions)
         expect(response.statusCode).toBe(200)
     })
 })
@@ -147,7 +145,8 @@ describe("PUT /modify-promotions", () => {
     })
 
     it("should add a product to the json", async () => {
-        const response = await request(baseURL).put("/modify-promotions").send(updatedPromotions)
+        const response = await request(baseURL).post("/modify-promotions").send(updatedPromotions)
         expect(response.statusCode).toBe(200)
     })
-})
+}) */ 
+//# sourceMappingURL=productApi.js.map

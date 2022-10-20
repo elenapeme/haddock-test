@@ -45,8 +45,6 @@ export const deletePromotionsService = async (promotions: any) => {
             return delete productsData.promotions[key]
         })
 
-        console.log(productsData.promotions)
-
     })
 
     writeJSON(productsData)
