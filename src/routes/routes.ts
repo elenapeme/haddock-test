@@ -1,8 +1,6 @@
 import express from 'express'
 import { validate } from './../utils/validateMiddleware'
 import { ProductsArraySchema } from './../schemas/ProductSchema'
-import { PromotionsArraySchema } from './../schemas/PromotionSchema'
-import { OrderSchema } from './../schemas/OrderSchema'
 import { getProducts, createProducts, deleteProducts } from './../controllers/ProductsController'
 import { orderProducts } from './../controllers/OrdersController'
 import { getPromotions, addPromotions, modifyPromotions, deletePromotions } from './../controllers/PromotionsController'
